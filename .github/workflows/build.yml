@@ -67,12 +67,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          tag_name: ${{ github.ref_name }}
+          name: TallyfyAI Desktop ${{ github.ref_name }}
           draft: false
           prerelease: false
+          generate_release_notes: true
           files: |
-            artifacts/**/*.exe
-            artifacts/**/*.dmg
-            artifacts/**/*.AppImage
-            artifacts/**/*.snap
-            artifacts/**/*.deb
-          generate_release_notes: true 
+            artifacts/mac/*.dmg
+            artifacts/windows/*.exe
+            artifacts/linux/*.AppImage
+            artifacts/linux/*.deb 
