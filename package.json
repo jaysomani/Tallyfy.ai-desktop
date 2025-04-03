@@ -20,6 +20,7 @@
     "url": "https://github.com/jaysomani/Tallyfy.ai-desktop.git"
   },
   "devDependencies": {
+    "7zip-bin": "^5.2.0",
     "electron": "^23.2.0",
     "electron-builder": "^24.0.0",
     "nodemon": "^2.0.22"
@@ -60,7 +61,6 @@
       "!LICENSE.md",
       "!package.json",
       "!package-lock.json",
-      "!src/",
       "!e2e/",
       "!hooks/",
       "!.angular/",
@@ -74,29 +74,11 @@
       "provider": "github",
       "releaseType": "release"
     },
-    "mac": {
-      "category": "public.app-category.finance",
-      "target": [
-        "dmg"
-      ],
-      "icon": "resources/icons/png/tallyfy-icon-512.png",
-      "artifactName": "${productName}-${version}.${ext}"
-    },
     "win": {
       "target": [
         "nsis"
       ],
-      "icon": "resources/icons/png/tallyfy-icon-512.png",
       "artifactName": "${productName}-Setup-${version}.${ext}"
-    },
-    "linux": {
-      "target": [
-        "AppImage",
-        "deb"
-      ],
-      "category": "Finance",
-      "maintainer": "TallyfyAI Team <info@tallyfy.ai>",
-      "icon": "resources/icons/png/tallyfy-icon-512.png"
     },
     "nsis": {
       "oneClick": false,
@@ -105,4 +87,4 @@
       "runAfterFinish": true
     }
   }
-} 
+}
