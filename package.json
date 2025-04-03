@@ -40,7 +40,6 @@
     "productName": "TallyfyAI",
     "copyright": "Copyright © 2023 TallyfyAI",
     "directories": {
-      "buildResources": "resources",
       "output": "dist"
     },
     "files": [
@@ -61,7 +60,6 @@
       "!LICENSE.md",
       "!package.json",
       "!package-lock.json",
-      "!e2e/",
       "!hooks/",
       "!.angular/",
       "!angular.json",
