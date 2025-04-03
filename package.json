@@ -70,7 +70,11 @@
     ],
     "publish": {
       "provider": "github",
-      "releaseType": "release"
+      "releaseType": "release",
+      "owner": "jaysomani",
+      "repo": "Tallyfy.ai-desktop",
+      "private": false,
+      "publishAutoUpdate": true
     },
     "win": {
       "target": [
