@@ -10,11 +10,14 @@
     "release": "electron-builder --publish always",
     "postinstall": "electron-builder install-app-deps"
   },
-  "author": "TallyfyAI Team",
+  "author": {
+    "name": "TallyfyAI Team",
+    "email": "info@tallyfy.ai"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/tallyfy-ai-electron.git"
+    "url": "https://github.com/jaysomani/Tallyfy.ai-desktop.git"
   },
   "devDependencies": {
     "electron": "^23.2.0",
@@ -32,7 +35,7 @@
     "pg": "^8.10.0"
   },
   "build": {
-    "appId": "com.tallyfy.ai",
+    "appId": "com.tallyfy.desktop",
     "productName": "TallyfyAI",
     "copyright": "Copyright © 2023 TallyfyAI",
     "directories": {
@@ -51,7 +54,21 @@
       "!**/{.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
       "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
       "!**/{appveyor.yml,.travis.yml,circle.yml}",
-      "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
+      "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}",
+      "!**/*.ts",
+      "!*.code-workspace",
+      "!LICENSE.md",
+      "!package.json",
+      "!package-lock.json",
+      "!src/",
+      "!e2e/",
+      "!hooks/",
+      "!.angular/",
+      "!angular.json",
+      "!_config.yml",
+      "!karma.conf.js",
+      "!tsconfig.json",
+      "!tslint.json"
     ],
     "publish": {
       "provider": "github",
@@ -62,20 +79,24 @@
       "target": [
         "dmg"
       ],
-      "icon": "resources/icons/mac/icon.icns"
+      "icon": "resources/icons/mac/icon.icns",
+      "artifactName": "${productName}-${version}.${ext}"
     },
     "win": {
+      "icon": "resources/icons/win/icon.ico",
       "target": [
         "nsis"
       ],
-      "icon": "resources/icons/win/icon.ico"
+      "artifactName": "${productName}-Setup-${version}.${ext}"
     },
     "linux": {
       "target": [
         "AppImage",
         "deb"
       ],
-      "category": "Finance"
+      "category": "Finance",
+      "maintainer": "TallyfyAI Team <info@tallyfy.ai>",
+      "icon": "resources/icons/png"
     },
     "nsis": {
       "oneClick": false,
