@@ -79,14 +79,14 @@
       "target": [
         "dmg"
       ],
-      "icon": "resources/icons/mac/icon.icns",
+      "icon": "resources/icons/png/tallyfy-icon-512.png",
       "artifactName": "${productName}-${version}.${ext}"
     },
     "win": {
-      "icon": "resources/icons/win/icon.ico",
       "target": [
         "nsis"
       ],
+      "icon": "resources/icons/png/tallyfy-icon-512.png",
       "artifactName": "${productName}-Setup-${version}.${ext}"
     },
     "linux": {
@@ -96,7 +96,7 @@
       ],
       "category": "Finance",
       "maintainer": "TallyfyAI Team <info@tallyfy.ai>",
-      "icon": "resources/icons/png"
+      "icon": "resources/icons/png/tallyfy-icon-512.png"
     },
     "nsis": {
       "oneClick": false,
