@@ -8,6 +8,13 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: write
+  packages: write
+
+env:
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
 jobs:
   build:
     name: Build on Windows
@@ -27,8 +34,6 @@ jobs:
         run: npm ci
         
       - name: Build Electron app
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: npm run build
 
       - name: Upload artifacts
@@ -54,8 +59,6 @@ jobs:
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           tag_name: ${{ github.ref_name }}
           name: TallyfyAI Desktop ${{ github.ref_name }}
