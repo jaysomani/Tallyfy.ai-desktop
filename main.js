@@ -22,8 +22,9 @@ const Store = require('electron-store');
 const store = new Store();
 
 // Import modules
-const auth = require('./src/main/auth');
-const database = require('./src/main/db');
+const auth = require(path.join(__dirname, 'src', 'main', 'auth'));
+const database = require(path.join(__dirname, 'src', 'main', 'db'));
+
 
 // Keep a global reference of the window object to avoid garbage collection
 let mainWindow;
