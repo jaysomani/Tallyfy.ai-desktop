@@ -1,95 +1,72 @@
 {
   "name": "tallyfy-ai-electron",
-  "version": "1.0.0",
-  "description": "TallyfyAI Electron Application",
+  "version": "1.1.0",
+  "description": "TallyfyAI Desktop Application",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dev": "electron . --dev",
-    "build": "electron-builder",
-    "release": "electron-builder --publish always",
-    "postinstall": "electron-builder install-app-deps"
+    "dev": "nodemon --exec electron .",
+    "build": "electron-builder build --win --publish never",
+    "deploy": "electron-builder build --win --publish always"
   },
-  "author": {
-    "name": "TallyfyAI Team",
-    "email": "info@tallyfy.ai"
-  },
+  "author": "Jay Somani",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jaysomani/Tallyfy.ai-desktop.git"
+  "dependencies": {
+    "amazon-cognito-identity-js": "^6.3.12",
+    "aws-sdk": "^2.1574.0",
+    "bootstrap": "^5.3.3",
+    "dotenv": "^16.4.5",
+    "electron-is-dev": "^2.0.0",
+    "electron-log": "^5.1.1",
+    "electron-store": "^8.2.0",
+    "electron-updater": "^6.1.8",
+    "pg": "^8.11.3"
   },
   "devDependencies": {
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^11.0.1",
-    "7zip-bin": "^5.2.0",
-    "electron": "^23.2.0",
-    "electron-builder": "^24.0.0",
-    "nodemon": "^2.0.22",
-    "semantic-release": "^24.2.3"
-  },
-  "dependencies": {
-    "amazon-cognito-identity-js": "^6.1.1",
-    "aws-sdk": "^2.1342.0",
-    "bootstrap": "^5.3.0-alpha1",
-    "dotenv": "^16.0.3",
-    "electron-log": "^4.4.8",
-    "electron-store": "^8.1.0",
-    "electron-updater": "^6.1.1",
-    "pg": "^8.10.0"
+    "electron": "^29.1.0",
+    "electron-builder": "^24.13.3",
+    "nodemon": "^3.1.0"
   },
   "build": {
     "appId": "com.tallyfy.desktop",
     "productName": "TallyfyAI",
-    "copyright": "Copyright © 2023 TallyfyAI",
     "directories": {
       "output": "dist"
     },
-    "files": [
-      "**/*",
-      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
-      "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
-      "!**/node_modules/*.d.ts",
-      "!**/node_modules/.bin",
-      "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
-      "!.editorconfig",
-      "!**/._*",
-      "!**/{.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
-      "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
-      "!**/{appveyor.yml,.travis.yml,circle.yml}",
-      "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}",
-      "!**/*.ts",
-      "!*.code-workspace",
-      "!LICENSE.md",
-      "!package.json",
-      "!package-lock.json",
-      "!hooks/",
-      "!.angular/",
-      "!angular.json",
-      "!_config.yml",
-      "!karma.conf.js",
-      "!tsconfig.json",
-      "!tslint.json"
-    ],
-    "publish": {
-      "provider": "github",
-      "releaseType": "release",
-      "owner": "jaysomani",
-      "repo": "Tallyfy.ai-desktop",
-      "private": false,
-      "publishAutoUpdate": true
-    },
     "win": {
       "target": [
-        "nsis"
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
       ],
-      "artifactName": "${productName}-Setup-${version}.${ext}"
+      "icon": "resources/icons/win/icon.ico",
+      "artifactName": "${productName}-Setup-${version}.${ext}",
+      "publisherName": "Jay Somani"
     },
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "runAfterFinish": true
-    }
+    },
+    "files": [
+      "**/*",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+      "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+      "!.editorconfig",
+      "!**/._*",
+      "!**/{.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
+      "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+      "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
+    ],
+    "publish": [{
+      "provider": "github",
+      "owner": "jaysomani",
+      "repo": "Tallyfy.ai-desktop",
+      "releaseType": "release",
+      "private": false
+    }]
   }
 }
