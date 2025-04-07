@@ -38,8 +38,7 @@
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <i class="bi bi-bar-chart-fill text-primary me-2"></i>
-        TallyfyAI
+        <img src="assets/img/horizontal.png" alt="TallyfyAI Logo" height="30">
       </a>
       
       <div class="ms-auto d-flex align-items-center">
@@ -116,7 +115,7 @@
             <div class="card">
               <div class="card-header">
                 <i class="bi bi-activity me-2"></i>
-                Recent Activity
+                Active Company
               </div>
               <div class="card-body">
                 <div class="activity-item">
@@ -156,14 +155,21 @@
                 Database Connection
               </div>
               <div class="card-body">
-                <div class="db-status mb-3">
-                  <p id="dbStatusMessage">Database connection status will appear here.</p>
+                <ul class="list-group" id="systemHealthList">
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Authentication: <span class="badge bg-secondary" id="authStatus">Checking...</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Database: <span class="badge bg-secondary" id="dbStatus">Checking...</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Tally: <span class="badge bg-secondary" id="tallyStatus">Checking...</span>
+                  </li>
+                </ul>
+                <div class="mt-3">
+                  <button id="checkDbButton" class="btn btn-sm btn-outline-primary">Test Database Connection</button>
+                  <p id="dbStatusMessage" class="text-muted mt-2"></p>
                 </div>
-                
-                <button id="checkDbButton" class="btn btn-primary">
-                  <i class="bi bi-arrow-repeat me-2"></i>
-                  Test Connection
-                </button>
               </div>
             </div>
           </div>
@@ -231,4 +237,4 @@
   <!-- Custom JS -->
   <script src="js/app.js"></script>
 </body>
-</html> 
+</html>
